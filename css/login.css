@@ -1,0 +1,69 @@
+@charset "UTF-8";
+.alert-tip b, .api-login b, .get-code .btn, .get-code-btn, .login-btn, .login-err-msg b, .reg-btn, .regist-form s, .regist-hd .fast-a, .regist-tab i, .regist-tab s, .shadow-input {
+  background: url(../images/regist_01.png) 999em 0 no-repeat; }
+
+/* 头部 */
+.gw960 {
+  width: 1200px;
+  margin: 0 auto; }
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: 100%; }
+
+.layout-header {
+  height: 60px; }
+
+.layout-header .logo-box {
+  float: left;
+  width: 194px;
+  height: 30px;
+  position: relative;
+  margin: 15px auto; }
+
+.layout-header .logo {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: 194px;
+  height: 30px;
+  top: 0;
+  left: 0; }
+
+/* 页面主体 */
+.login-page {
+  border-top: 1px solid #e5e5e5;
+  padding: 0;
+  overflow: visible;
+  text-shadow: #fff 0 1px 0; }
+
+.login-theme {
+  width: 100%;
+  top: 0;
+  margin-left: -50%;
+  padding: 70px 0;
+  z-index: 0; }
+
+.login-box, .login-theme {
+  height: 560px;
+  left: 50%;
+  position: absolute; }
+
+.login-box {
+  top: 70px;
+  margin-left: -600px;
+  z-index: 1; }
+
+.login-panel {
+  background: #fff;
+  width: 420px;
+  height: 560px;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  z-index: 10;
+  border: 1px solid #d8d8d8;
+  box-shadow: 0 0 20px #c8c8c8; }
+
+.login-tab {
+  height: 52px; }

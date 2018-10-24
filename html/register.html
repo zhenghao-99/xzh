@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/common.min.css">
+		<link rel="stylesheet" href="../css/regist.min.css">
+		<link rel="stylesheet" href="../js/login.js">
+	</head>
+	<body id="login-body">
+	<!-- 公用头部 开始 -->
+	<div id="head" class="gw960">
+
+	<input type="hidden" id="xiuIndex" value="">
+	<!-- LOGO -->
+	    <div class="layout-header">
+	        <h1 class="logo-box">
+	            <a href="../index.html" class="logo">
+	            <img src="../images/logo_mini.png">
+	            </a>
+	        </h1>
+	    </div>
+	</div>
+	<!-- 公用头部 结束-->
+
+	<!-- 页面主体 -->
+	<div id="page" class="login-page">
+	<div id="J_login_theme_bg" class="login-bgcolor">
+		<div id="J_login_theme" class="login-theme" style="background:url(../images/login_bg.jpg) center no-repeat #f7f2ec;"></div>
+		<div class="login-box gw960">
+	    	<form method="post" action="">
+	    	<div id="J_login_panel" class="login-panel">
+				<ul class="login-tab">
+	                <li><a href="login.html" >短信登录</a></li>
+	                <li><a href="register.html" class="active">密码登录</a></li>
+	            </ul>
+	            <div class="login-form clfix">
+	            	<ul>
+	                    <li id="J_errorMsgBox" class="err-msg">
+	                        <label class="login-err-msg"><b></b><span id="J_errorMsgTxt"></span></label>
+	                    </li>
+	                	<li class="username">
+		                    <input id="J_mobile" class="ltext shadow-input" type="text" name="phoneNum" maxlength="11" value="">
+		                    <input id="J_mobile_hidden" type="hidden" name="userName" maxlength="11" value="手机号码">
+		                    <input id="statecode" name="statecode" type="hidden">
+		                   
+		                    <label id="J_moblie_tip" style="display:none;"><p>新手机号将认为接受<a href="" target="_blank">《走秀网用户协议》</a>并自动注册账号</p></label>
+	                    </li>
+	                    <li id="authCode_errorMsgBox" class="err-msg">
+	                        <label class="login-err-msg"><b></b><span id="authCode_errorMsgTxt"></span></label>
+	                    </li>
+	                    <li class="authcode hide" id="authcode_li">
+	                        <input id="J_auth_code" class="ltext shadow-input" type="text" name="authCode">
+	                        <label id="J_authcode_wel" for="J_auth_code" class="input-tip" title="请填入验证码答案">验证码</label>
+	                        <span id="authCodeMsg"></span>
+	                        <a href=";" class="code-img">
+	                    		<img src="" id="authCodeImg" title="请填入阿拉伯数字答案">
+	                    	</a>
+	                        <a href=";" class="change-code">换一换</a>
+	                        <span class="clfix"></span>
+	                    </li>
+	                    <li id="msgCode_errorMsgBox" class="err-msg">
+	                        <label class="login-err-msg"><b></b><span id="msgCode_errorMsgTxt"></span></label>
+	                    </li>
+	                    <li class="msgcode">
+	                        <input id="J_msgcode" class="ltext shadow-input" type="text" name="authCode_phone">
+	                 
+	                        <a id="J_msg_code_btn" href=";" class="phone_login_btn" onclick="sendAuthCodeClick();">获取验证码</a>
+	                        <a id="J_auth_code_wait" href="" class="phone_login_btn2"><em class="time">30s</em></a>
+	                        <span class="clfix"></span>
+	                        <label id="J_voice_btn" style="display:none;"><p>收不到验证码？<a href="" onclick="sendVoiceCodeClick(this);">获取语音验证码</a></p></label>
+	                    </li>
+	                    <li class="clfix">
+	                        <div class="getpassreg">
+	                        	<a href="" class="getpass">找回密码</a>
+								 | 
+								 <a href="login.html" class="getpass" style="cursor:help" title="短信登录即可注册">注册账号</a>
+	                        </div>
+	                    </li>
+	                    <li class="clfix">
+	                    <!--初始状态-->
+	                    <button class="login-btn" id="login_Btn" type="submit">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+	                    </li>
+	                </ul>
+	            </div>
+	            <div class="login-extinfo">
+	            	<dl>
+	            		<dt id="J_api_login_opt" class="optbar"><span class="tit">合作网站账号登录</span></dt>
+	                    <dd id="J_api_login_box">
+	                    	<ul class="api-login clfix">
+	                            <li><a href="" class="api-qq" title="QQ账号"></a></li>
+	                        	<li><a href="" class="api-wechat" title="微信账号"></a></li>
+	                            <li><a href="" class="api-sina" title="新浪微博"></a></li>
+	                            <li><a href="" class="api-alipay" title="支付宝账号"></a></li>
+	                            <li class="last"><a href="" class="api-pingan" title="平安万里通"></a></li>
+	                        </ul>
+	                    </dd>
+	                </dl>
+	            </div>
+	            <div class="login-xieyi">
+					 登录代表您已同意<a href="" target="_blank">《走秀网用户协议》</a>
+				</div>
+	            <!--二维码扫码登陆入口 开始-->
+	            <a href="" class="login_codego"></a>
+	            <a href="" class="login_ewmg"></a>
+	            <!--二维码扫码登陆入口 结束-->
+	        </div>
+	    	
+	        <input type="hidden" name="loginDisplayType" value="1">
+	        <input type="hidden" name="bizType" value="1">
+	        <input type="hidden" name="returnUrl" value="../images/login_bg.jpg">
+	        <input type="hidden" id="authCode" name="authoCode">
+			<input type="hidden" id="imgCode" name="imgCode"> 
+			<input type="hidden" id="from" name="from" value="">
+
+	        </form>
+	    </div>
+	</div>
+	</div>
+
+	<!-- 页脚 开始 -->
+	<!-- -->
+	<div id="footer_1" class="gw960 g-footer">
+		<div class="g-footer-xiu">
+	    	<a>关于走秀</a>
+	        <b>|</b>
+	        <a>媒体报道</a>
+	        <b>|</b>
+	        <a>品牌招商</a>
+	        <b>|</b>
+	        <a>加入走秀</a>
+	        <b>|</b>
+	        <a>友情链接</a>
+	        <b>|</b>
+	        <a>联系我们</a>
+	        <b>|</b>
+	        <a>帮助中心</a>
+	        <b>|</b>
+	        <a>网站地图</a>
+	    </div>
+	    <div class="g-footer-copyright">
+	    	Copyright © 2008-<script>document.write(new Date().getFullYear());</script>2018 <a href="http://www.xiu.com">Xiu.com</a> 版权所有 . 粤ICP备07502993号
+	    	<a href="" width="14" height="14">
+	 			 粤公网安备 44030402000804号
+	        </a>
+	    </div>
+	</div>
+	<!-- 页脚 结束 -->
+
+
+
+
+	</body>
+</html>
